@@ -25,3 +25,13 @@ $runner->execute();
 ```
 
 `PRE_BASE_DIR` is the base directory from which it will look recursively for `.pre` files
+
+### Caution
+
+Please note that the pre-processing rules are not exhaustive and cover what I am actively using:
+
+\PHPUnit\Framework\TestCase to \PHPUnit_Framework_TestCase
+createMock() to getMock()
+createPartialMock() to getMock()
+
+see [here](https://github.com/fooman/phpunit-polyfill/blob/master/tests/specs/phpunit-polyfill.spec) for details.
