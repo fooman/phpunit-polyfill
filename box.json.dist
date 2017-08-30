@@ -1,0 +1,18 @@
+{
+    "main": "bin/phpunit-polyfill.php",
+    "output": "phpunit-polyfill.phar",
+    "stub": true,
+      "directories": [
+        "src"
+      ],
+    "finder": [
+      {
+        "name": "*.php",
+        "exclude": [
+          "tests",
+          "test"
+        ],
+        "in": "vendor"
+      }
+    ]
+}

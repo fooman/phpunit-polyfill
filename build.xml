@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="publish-phar" basedir=".">
+
+  <target name="publish-phar">
+    <exec command="box build -v" checkreturn="true" logoutput="true" />
+    <exec command="mv phpunit-polyfill.phar phpunit-polyfill.phar.tmp" checkreturn="true" logoutput="true" />
+    <exec command="git checkout gh-pages" checkreturn="true" logoutput="true" />
+    <exec command="rm phpunit-polyfill.phar" checkreturn="true" logoutput="true" />
+    <exec command="mv phpunit-polyfill.phar.tmp phpunit-polyfill.phar" checkreturn="true" logoutput="true" />
+    <exec command="git add phpunit-polyfill.phar" checkreturn="true" logoutput="true" />
+    <exec command="git commit -m 'Updated phar'" checkreturn="true" logoutput="true" />
+    <exec command="git push" checkreturn="true" logoutput="true" />
+    <exec command="git checkout master" checkreturn="true" logoutput="true" />
+  </target>
+
+</project>

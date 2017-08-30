@@ -1,0 +1,46 @@
+<?php
+
+macro {
+    \PHPUnit\Framework\TestCase
+} >> {
+··phpunitCodeSwitcher(\PHPUnit_Framework_TestCase|\PHPUnit\Framework\TestCase)
+}
+
+macro ·recursion {
+    ·chain(
+        ·token(T_OBJECT_OPERATOR),
+        createMock,
+        ·token("("),
+        ·string()·param,
+        ·token(")")
+    )
+} >> {
+··phpunitCodeSwitcher(->getMock(··trim(·param),[],[],'',false)|->createMock(··trim(·param)))
+}
+macro ·recursion {
+    ·chain(
+        ·token(T_OBJECT_OPERATOR),
+        createPartialMock,
+        ·token("("),
+        ·string()·classname,
+        ·token(","),
+        ·between(
+            ·token("["), ·layer()·mocked_methods, ·token("]")
+        ),
+        ·optional(·token(",")),
+        ·token(")")
+    )
+} >> {
+··phpunitCodeSwitcher(
+    ->getMock(
+    ·classname,
+    [·mocked_methods],
+    [],
+    '',
+    false
+)|
+    ->createPartialMock(
+    ·classname,
+    [·mocked_methods]
+))
+}

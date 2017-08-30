@@ -1,0 +1,32 @@
+{
+    "type": "pre-macro",
+    "name": "fooman/phpunit-polyfill",
+    "license": "MIT",
+    "require": {
+        "pre/plugin": "^0.7.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.0"
+    },
+    "autoload": {
+        "files": [
+            "src/expanders.php"
+        ],
+        "psr-4": {
+            "Fooman\\PhpunitPolyfill\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fooman\\PhpunitPolyfill\\": "tests/"
+        }
+    },
+    "extra": {
+        "macros": [
+            "src/macros.yay"
+        ]
+    },
+    "bin": ["bin/phpunit-polyfill.php"],
+    "minimum-stability":"dev",
+    "prefer-stable":true
+}
