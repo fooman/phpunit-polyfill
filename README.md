@@ -30,8 +30,8 @@ $runner->execute();
 
 Please note that the pre-processing rules are not exhaustive and cover what I am actively using:
 
-\PHPUnit\Framework\TestCase to \PHPUnit_Framework_TestCase
-createMock() to getMock()
-createPartialMock() to getMock()
+1. \PHPUnit\Framework\TestCase to \PHPUnit_Framework_TestCase  
+2. createMock() to getMock()  
+3. createPartialMock() to getMock()  
 
 see [here](https://github.com/fooman/phpunit-polyfill/blob/master/tests/specs/phpunit-polyfill.spec) for details.
